@@ -4,21 +4,22 @@ Object.defineProperty(o, 'nombre', {value: 'Pepe'} );
 console.log(o);
 console.log(o.nombre);
 
-/* function curso(target) {
+function cursoTS(target) {
     Object.defineProperty(
         target.prototype,
         'curso',
-        {value: () => 'Angular 2'},
+        {value: 'TypeScript'},
     );
 }
 
-@curso
+@cursoTS
 class Estudiante {
     constructor(public nombre: string) {}
 }
 
 const es = new Estudiante('Pepe');
-console.log(es.curso()) */
+console.log(es['curso'])
+
 
 function Student(config) { 
     return (target) => {
@@ -31,9 +32,9 @@ function Student(config) {
 }
 
 @Student({
-    course: 'Angular 2',
+    course: 'Angular 8',
 })
-class Estudiante {
+class Estudiante2 {
     firstName;
     lastName;
     constructor(firstName, lastName) {
@@ -42,5 +43,5 @@ class Estudiante {
     }
 }
 
-let oEstudiante = new Estudiante('Pepe', 'Pérez');
-console.log(oEstudiante.course()); // Angular 2
+let oEstudiante2 = new Estudiante2('Pepe', 'Pérez');
+console.log(oEstudiante2['course']()); // Angular 2
